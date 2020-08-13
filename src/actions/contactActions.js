@@ -1,4 +1,9 @@
-import { GET_CONTACTS, DELETE_CONTACT, ADD_CONTACT } from "./types";
+import {
+  GET_CONTACTS,
+  DELETE_CONTACT,
+  ADD_CONTACT,
+  GET_CONTACT,
+} from "./types";
 import axios from "axios";
 export const getContacts = () => async (dispatch) => {
   const res = await axios.get("https://jsonplaceholder.typicode.com/users");
@@ -9,6 +14,17 @@ export const getContacts = () => async (dispatch) => {
   });
 };
 
+//GET ONE CONTACT
+export const getContact = (id) => async (dispatch) => {
+  const res = await axios.get(
+    `https://jsonplaceholder.typicode.com/users/${id}`
+  );
+
+  dispatch({
+    type: GET_CONTACT,
+    payload: res.data,
+  });
+};
 export const deleteContact = (id) => async (dispatch) => {
   //this try catch becuse of add contact we add could delete also it is not in jason
   try {
