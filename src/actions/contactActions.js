@@ -3,6 +3,7 @@ import {
   DELETE_CONTACT,
   ADD_CONTACT,
   GET_CONTACT,
+  UPDATE_CONTACT,
 } from "./types";
 import axios from "axios";
 export const getContacts = () => async (dispatch) => {
@@ -47,6 +48,17 @@ export const addContact = (contact) => async (dispatch) => {
   );
   dispatch({
     type: ADD_CONTACT,
+    payload: res.data,
+  });
+};
+
+export const updateContact = (contact) => async (dispatch) => {
+  const res = await axios.put(
+    `https://jsonplaceholder.typicode.com/users/${contact.id}`,
+    contact
+  );
+  dispatch({
+    type: UPDATE_CONTACT,
     payload: res.data,
   });
 };
