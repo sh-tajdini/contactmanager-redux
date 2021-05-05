@@ -35,7 +35,7 @@ Contacts.propTypes = {
 //esme state dar redux contact ast
 //for map redux to local property
 const mapStateToProps = (state) => ({
-  contacts: state.contact.contacts,
+  contacts: state.contact.contacts, /// samte rast contact az index reducer miaayad
 });
 
-export default connect(mapStateToProps, { getContacts })(Contacts);
+export default connect(mapStateToProps, { getContacts })(Contacts);// da ta mored inja mizarrim. yeki map kardane state redux be props component va digari dispatch baraye farakhni action ha

@@ -34,11 +34,13 @@ export const deleteContact = (id) => async (dispatch) => {
       type: DELETE_CONTACT,
       payload: id,
     });
-  } catch (e) {}
-  dispatch({
-    type: DELETE_CONTACT,
-    payload: id,
-  });
+  } catch (e) {
+    dispatch({
+      type: DELETE_CONTACT,
+      payload: id,
+    });
+  }
+  
 };
 
 export const addContact = (contact) => async (dispatch) => {
